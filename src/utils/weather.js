@@ -10,11 +10,12 @@ const weather = (longitude, latitude, callback) => {
         } else if (body.success == 'false') {
             callback('Unable to find location. Try another search', undefined)
         } else {
+            console.log(body)
             callback(undefined, {
                 temperature: body.current.temperature,
                 feelslike: body.current.feelslike,
                 description: body.current.weather_descriptions[0],
-                precipitation: body.current.precipitation
+                precipitation: body.current.precip
             })
         }
     })
